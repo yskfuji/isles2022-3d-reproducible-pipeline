@@ -2,6 +2,8 @@
 
 English version: [README_en.md](README_en.md)
 
+対応する公開リポジトリ名: `isles2022-3d-reproducible-pipeline`
+
 このフォルダは、ISLES-2022 病変セグメンテーションの実験を
 **再現可能な形で第三者に説明・実行してもらうための入口**です。
 

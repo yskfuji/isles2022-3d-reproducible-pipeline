@@ -1,6 +1,8 @@
-# ISLES-2022 Reproducible Audit Package
+# isles2022-3d-reproducible-pipeline
 
 このディレクトリは **ISLES-2022 lesion segmentation** の公開・監査用パッケージです。
+
+推奨リポジトリ名: `isles2022-3d-reproducible-pipeline`
 
 ## 入口
 
