@@ -223,7 +223,7 @@
 
 出典（このファイルが「一次情報」）：
 
-- `ToReBrain-pipeline/results/diag/fp_precision_eval_20260111/medseg_3d_unet_fp2_conservative_bce2_pw05_dicebce_autothr_basech48_e120_kfold5_f0_ts222/eval_val_tta_flip_cpu/summary.json`
+- `pipeline/results/diag/fp_precision_eval_20260111/medseg_3d_unet_fp2_conservative_bce2_pw05_dicebce_autothr_basech48_e120_kfold5_f0_ts222/eval_val_tta_flip_cpu/summary.json`
 
 ポートフォリオ記載の最小テンプレ（1行で意図が伝わる）：
 
@@ -232,7 +232,7 @@
 再現コマンド（同じ評価を作り直す場合）：
 
 ```zsh
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 TORCH_DEVICE=cpu PYTHONPATH=$PWD /opt/anaconda3/envs/medseg_unet/bin/python -m src.evaluation.evaluate_isles \
   --model-path runs/3d_unet/medseg_3d_unet_fp2_conservative_bce2_pw05_dicebce_autothr_basech48_e120_kfold5_f0_ts222/best.pt \
   --csv-path data/splits/kfold5_my_dataset/fold0.csv \
@@ -272,11 +272,11 @@ TORCH_DEVICE=cpu PYTHONPATH=$PWD /opt/anaconda3/envs/medseg_unet/bin/python -m s
 実行例（既存アンサンブル確率 `probs` を使って再評価）
 
 ```zsh
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 /opt/anaconda3/envs/medseg_unet/bin/python -m src.evaluation.evaluate_isles \
   --model-path None \
-  --csv-path /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline/data/splits/my_dataset_train_val_test.csv \
-  --root /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline/data/processed/my_dataset_ts222 \
+  --csv-path /Users/yusukefujinami/ToReBrain/pipeline/data/splits/my_dataset_train_val_test.csv \
+  --root /Users/yusukefujinami/ToReBrain/pipeline/data/processed/my_dataset_ts222 \
   --split test \
   --probs-dir results/diag/kfold_ensemble_20251230_103044/ensemble/probs \
   --out-dir results/diag/kfold_ensemble_20251230_103044/eval_ensemble_test_extra \
@@ -304,7 +304,7 @@ cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
 `evaluate_isles` が吐く `metrics.json` から、best閾値（summaryのbest）で症例別Dice/Precision/Recallとエラータイプ（FP優勢/FN優勢/見逃し）をCSV化する。
 
 ```zsh
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 /opt/anaconda3/envs/medseg_unet/bin/python3.11 tools/analyze_eval_run.py \
   --eval-dir results/diag/kfold_ensemble_20251230_103044/eval_ensemble_test \
   --top-k 20
@@ -320,7 +320,7 @@ cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
 `min_size/top_k` で改善しない場合、FP連結成分だけ落とす `cc_score` を軽くスイープする。
 
 ```zsh
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 export PYTHONPATH=$PWD
 PY=/opt/anaconda3/envs/medseg_unet/bin/python3.11
 PROBS=$PWD/results/diag/kfold_ensemble_20251230_103044/ensemble/probs
@@ -379,7 +379,7 @@ done
 
 ---
 
-# ToReBrain-pipeline（この作業リポジトリ）との比較メモ
+# pipeline（この作業リポジトリ）との比較メモ
 
 ## いままでの実験（要点）とのズレ
 
@@ -403,15 +403,15 @@ done
 
 以下を追加（DWI+ADCのみ、foreground 50%/random 50%、Dice+BCE、val thr=0.5固定、patchは大きめ）：
 
-- `ToReBrain-pipeline/configs/generated/_recipe_20251227/medseg_3d_unet_recipe_dwi_adc_fp50_dicebce_patch96_e200.yaml`
+- `pipeline/configs/generated/_recipe_20251227/medseg_3d_unet_recipe_dwi_adc_fp50_dicebce_patch96_e200.yaml`
 
 注意：`patch_size=[96,96,96]` はMPSでOOMする可能性があります。OOMしたらまず `patch_size` を下げる（例: `[80,80,80]`）か、`base_ch` を16へ落とすのが最短です。
 
 ---
 
-# ToReBrain-pipelineでの「公式（比較用）」評価定義（固定）
+# pipelineでの「公式（比較用）」評価定義（固定）
 
-比較のブレを防ぐため **`ToReBrain-pipeline/src/evaluation/evaluate_isles.py` の `summary.json` を“公式”として扱う**前提で進めます。
+比較のブレを防ぐため **`pipeline/src/evaluation/evaluate_isles.py` の `summary.json` を“公式”として扱う**前提で進めます。
 
 ## 評価の定義（重要ポイント）
 
@@ -435,7 +435,7 @@ done
 ## 1) データ統計（spacing/軸/GTサイズ）
 
 ```bash
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 /opt/anaconda3/envs/medseg_unet/bin/python tools/data_report.py \
   --config configs/generated/_recipe_20251227/medseg_3d_unet_recipe_dwi_adc_fp50_dicebce_patch96_e200.yaml \
   --out-root results/diag
@@ -444,7 +444,7 @@ cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
 ## 2) nnU-Net風の前処理プラン（target spacing候補）
 
 ```bash
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 /opt/anaconda3/envs/medseg_unet/bin/python tools/plan_nnunet_like_preprocess.py \
   --config configs/generated/_recipe_20251227/medseg_3d_unet_recipe_dwi_adc_fp50_dicebce_patch96_e200.yaml \
   --out results/diag/nnunet_plan_my_dataset.json
@@ -453,7 +453,7 @@ cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
 ## 3) 5-fold split（test固定）
 
 ```bash
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 /opt/anaconda3/envs/medseg_unet/bin/python tools/make_kfold_splits.py \
   --csv-in data/splits/my_dataset_train_val_test.csv \
   --root data/processed/my_dataset \
@@ -472,18 +472,18 @@ cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
 
 今回のk-fold設定ディレクトリ（例）：
 
-- `ToReBrain-pipeline/configs/generated/_kfold5_ts222_20251229_104534/`
+- `pipeline/configs/generated/_kfold5_ts222_20251229_104534/`
 
 この中の fold1-4 は `train.epochs: 100` に変更済み（fold0は200のまま）。
 
 学習キュー起動（fold1-4を順次）：
 
 ```bash
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 stamp=$(date +%Y%m%d_%H%M%S)
 nohup /opt/anaconda3/envs/medseg_unet/bin/python tools/run_train_queue.py \
   --python /opt/anaconda3/envs/medseg_unet/bin/python \
-  --repo /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline \
+  --repo /Users/yusukefujinami/ToReBrain/pipeline \
   --configs \
     configs/generated/_kfold5_ts222_20251229_104534/medseg_3d_unet_recipe_dwi_adc_fp50_dicebce_patch96_e200_kfold5_f1_ts222.yaml \
     configs/generated/_kfold5_ts222_20251229_104534/medseg_3d_unet_recipe_dwi_adc_fp50_dicebce_patch96_e200_kfold5_f2_ts222.yaml \
@@ -500,7 +500,7 @@ disown
 例（fold1を延長したい場合）：
 
 - config: `..._f1_ts222.yaml`
-- init元: `ToReBrain-pipeline/runs/3d_unet/<exp_name>/last.pt`
+- init元: `pipeline/runs/3d_unet/<exp_name>/last.pt`
 
 補足：このリポジトリでは “真のresume（optimizer/epoch復元）” ではなく、基本は `train.init_from` による **重みのみロード**で延長します。
 ```

@@ -7,9 +7,9 @@
 1. `./isles2022/README.md`（または `README_en.md`）
 2. `./isles2022/docs/isles2022_unet_minimum_recipe_ja.md`
 3. `./isles2022/docs/isles2022_3dunet_complete_debug_and_fix_plan.md`
-4. `./core/ToReBrain-pipeline/src/preprocess/prepare_isles2022.py`
-5. `./core/ToReBrain-pipeline/src/training/train_3d_unet.py`
-6. `./core/ToReBrain-pipeline/src/evaluation/evaluate_isles.py`
+4. `./core/pipeline/src/preprocess/prepare_isles2022.py`
+5. `./core/pipeline/src/training/train_3d_unet.py`
+6. `./core/pipeline/src/evaluation/evaluate_isles.py`
 
 ## 2. 主な監査ポイント
 

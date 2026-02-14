@@ -179,7 +179,7 @@
 
 ### 7.3 すぐ回せる実験（YAMLは生成済み）
 以下を追加済み:
-- `ToReBrain-pipeline/configs/generated/_thin_fix_20251223/`
+- `pipeline/configs/generated/_thin_fix_20251223/`
 
 推奨順:
 1. サンプリング修正のみ（損失は現状維持）
@@ -190,7 +190,7 @@
 
 学習（例: サンプリング修正のみ）:
 ```zsh
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 PYTHONPATH=$PWD /opt/anaconda3/bin/conda run -p /opt/anaconda3 --no-capture-output \
   python -m src.training.train_3d_unet \
   --config configs/generated/_thin_fix_20251223/medseg_3d_unet_e20_dwi_adc_flair_fp_ohem_balanced_fg033_ps482424_ch48_pr2prod_dice_bce_pw4p0_bw0p5_thinfix_pos80_fgccinv_a1.yaml
@@ -198,7 +198,7 @@ PYTHONPATH=$PWD /opt/anaconda3/bin/conda run -p /opt/anaconda3 --no-capture-outp
 
 test評価（推論は `tta=none` と `tta=flip` を両方。resample=2.0, slice-spacingはraw固定）:
 ```zsh
-cd /Users/yusukefujinami/ToReBrain/ToReBrain-pipeline
+cd /Users/yusukefujinami/ToReBrain/pipeline
 MODEL=runs/3d_unet/medseg_3d_unet_e20_dwi_adc_flair_fp_ohem_balanced_fg033_ps482424_ch48_pr2prod_dice_bce_pw4p0_bw0p5_thinfix_pos80_fgccinv_a1/best.pt
 
 for TTA in none flip; do

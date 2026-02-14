@@ -11,7 +11,7 @@ English version: [README_en.md](README_en.md)
 
 ## TL;DR
 
-- 主要コードは `../core/ToReBrain-pipeline/` にあります。
+- 主要コードは `../core/pipeline/` にあります。
 - 3D U-Net ベースの前処理・学習・評価パイプラインを一式で実行できます。
 - 公開物には `Datasets/`・`runs/`・`results/` を同梱していません（データは各自で準備）。
 - まずは「前処理 → 学習 → 評価」の最短 3 ステップを通すと全体像を把握できます。
@@ -21,19 +21,19 @@ English version: [README_en.md](README_en.md)
 ## 1. コードマップ
 
 - 前処理（ISLES-2022 生データ→学習用形式）
-  - `../core/ToReBrain-pipeline/src/preprocess/prepare_isles2022.py`
+  - `../core/pipeline/src/preprocess/prepare_isles2022.py`
 - 学習（3D U-Net）
-  - `../core/ToReBrain-pipeline/src/training/train_3d_unet.py`
+  - `../core/pipeline/src/training/train_3d_unet.py`
 - 評価（sliding window / threshold sweep / size-stratified 指標）
-  - `../core/ToReBrain-pipeline/src/evaluation/evaluate_isles.py`
+  - `../core/pipeline/src/evaluation/evaluate_isles.py`
 - Dataset 定義
-  - `../core/ToReBrain-pipeline/src/datasets/isles_dataset.py`
+  - `../core/pipeline/src/datasets/isles_dataset.py`
 
 ---
 
 ## 2. 再現手順（最短）
 
-以下は `github_public/core/ToReBrain-pipeline/` をカレントとして実行します。
+以下は `github_public/core/pipeline/` をカレントとして実行します。
 
 ### 2.1 前処理
 

@@ -9,7 +9,7 @@ organized so a third party can understand and rerun the pipeline with their own 
 
 ## TL;DR
 
-- Main implementation lives in `../core/ToReBrain-pipeline/`.
+- Main implementation lives in `../core/pipeline/`.
 - The repository includes end-to-end scripts for preprocessing, training, and evaluation.
 - `Datasets/`, `runs/`, and `results/` are intentionally excluded from this public export.
 - The fastest way to understand the project is: preprocess → train → evaluate.
@@ -19,19 +19,19 @@ organized so a third party can understand and rerun the pipeline with their own 
 ## 1. Code map
 
 - Preprocessing (raw ISLES-2022 to processed layout)
-  - `../core/ToReBrain-pipeline/src/preprocess/prepare_isles2022.py`
+  - `../core/pipeline/src/preprocess/prepare_isles2022.py`
 - Training (3D U-Net)
-  - `../core/ToReBrain-pipeline/src/training/train_3d_unet.py`
+  - `../core/pipeline/src/training/train_3d_unet.py`
 - Evaluation (sliding window / threshold sweep / size-stratified metrics)
-  - `../core/ToReBrain-pipeline/src/evaluation/evaluate_isles.py`
+  - `../core/pipeline/src/evaluation/evaluate_isles.py`
 - Dataset definitions
-  - `../core/ToReBrain-pipeline/src/datasets/isles_dataset.py`
+  - `../core/pipeline/src/datasets/isles_dataset.py`
 
 ---
 
 ## 2. Quick reproducible run
 
-Run the commands below from `github_public/core/ToReBrain-pipeline/`.
+Run the commands below from `github_public/core/pipeline/`.
 
 ### 2.1 Preprocess
 
