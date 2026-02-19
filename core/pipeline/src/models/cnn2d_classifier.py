@@ -38,7 +38,7 @@ class _ConvBlock(nn.Module):
 
 
 class CNN2DClassifier(nn.Module):
-    """Small 2D CNN baseline for RSNA multi-label classification."""
+    """Small 2D CNN baseline for multi-label classification."""
 
     def __init__(
         self,

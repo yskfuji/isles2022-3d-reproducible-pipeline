@@ -71,7 +71,7 @@ def _fmt_float(x: float | None) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(
         description=(
-            "Summarize RSNA CV runs (fold*/log.jsonl last line) into mean/std/min/max for chosen metrics."
+            "Summarize CV runs (fold*/log.jsonl last line) into mean/std/min/max for chosen metrics."
         )
     )
     ap.add_argument(

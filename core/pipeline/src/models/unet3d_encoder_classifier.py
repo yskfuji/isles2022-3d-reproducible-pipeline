@@ -32,7 +32,7 @@ class UNet3DEncoderClassifier(nn.Module):
         self.norm = str(norm).strip().lower()
 
         self.enc1 = conv_block_3d(in_channels, base_ch, norm=self.norm)
-        # RSNA slice-level input uses D=1; do not downsample depth.
+        # Slice-level input may use D=1; do not downsample depth.
         self.down1 = nn.Conv3d(base_ch, base_ch, kernel_size=(1, 2, 2), stride=(1, 2, 2))
         self.enc2 = conv_block_3d(base_ch, base_ch * 2, norm=self.norm)
         self.down2 = nn.Conv3d(base_ch * 2, base_ch * 2, kernel_size=(1, 2, 2), stride=(1, 2, 2))
