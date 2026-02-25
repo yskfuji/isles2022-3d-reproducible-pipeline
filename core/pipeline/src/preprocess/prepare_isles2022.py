@@ -156,6 +156,11 @@ def preprocess_case(case_id: str, raw_root: Path, derivatives_root: Path, out_ro
 
 
 def write_splits(case_ids: List[str], csv_path: Path, train_ratio: float, val_ratio: float, seed: int = 42):
+    if train_ratio + val_ratio > 1.0:
+        raise ValueError(
+            f"train_ratio ({train_ratio}) + val_ratio ({val_ratio}) = "
+            f"{train_ratio + val_ratio:.4f} > 1.0; test set would be empty or negative."
+        )
     random.seed(seed)
     shuffled = case_ids[:]
     random.shuffle(shuffled)

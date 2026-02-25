@@ -1123,12 +1123,18 @@ def main(
         # lesion-wise micro metrics
         if total_pred_lesions > 0:
             lesion_prec = float(total_tp_pred / float(total_pred_lesions))
+        elif total_gt_lesions == 0:
+            # Both pred and GT are empty: precision is undefined (0/0).
+            lesion_prec = float("nan")
         else:
-            lesion_prec = 1.0 if total_gt_lesions == 0 else 0.0
+            lesion_prec = 0.0
         if total_gt_lesions > 0:
             lesion_rec = float(total_tp_gt / float(total_gt_lesions))
+        elif total_pred_lesions == 0:
+            # Both GT and pred are empty: recall is undefined (0/0).
+            lesion_rec = float("nan")
         else:
-            lesion_rec = 1.0 if total_pred_lesions == 0 else 0.0
+            lesion_rec = 0.0
         lesion_f1 = _f1(lesion_prec, lesion_rec)
 
         extra_best = {

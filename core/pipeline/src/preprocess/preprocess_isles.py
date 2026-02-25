@@ -56,28 +56,37 @@ def main(
     log_f.parent.mkdir(parents=True, exist_ok=True)
     tx = _build_transforms(spacing)
 
-    cases = sorted([p.name for p in (raw_root_p / "train").iterdir() if p.is_dir()])
+    # Process all available splits (train/val/test).
+    with log_f.open("a") as f:
+        for split in ("train", "val", "test"):
+            split_dir = raw_root_p / split
+            if not split_dir.exists():
+                continue
+            cases = sorted([p.name for p in split_dir.iterdir() if p.is_dir()])
+            for case_id in cases:
+                record = preprocess_single_case(case_id, split_dir, out_root_p, modalities, spacing, tx)
+                f.write(json.dumps(record) + "\n")
 
-    for case_id in cases:
-        record = preprocess_single_case(case_id, raw_root_p, out_root_p, modalities, spacing, tx)
-        with log_f.open("a") as f:
-            f.write(json.dumps(record) + "\n")
 
+def preprocess_single_case(case_id, split_dir, out_root, modalities, spacing, tx):
+    """Preprocess a single case from split_dir/case_id/.
 
-def preprocess_single_case(case_id, raw_root, out_root, modalities, spacing, tx):
+    Args:
+        split_dir: Path to the split directory (e.g. raw_root / "train").
+    """
     img_list = []
     ref_img = None
     input_paths = {}
 
     for m in modalities:
-        path = raw_root / "train" / case_id / f"{m.lower()}.nii.gz"
+        path = split_dir / case_id / f"{m.lower()}.nii.gz"
         data, img = load_nifti(str(path))
         input_paths[m] = str(path)
         if ref_img is None:
             ref_img = img
         img_list.append(data)
 
-    mask_path = raw_root / "train" / case_id / "mask.nii.gz"
+    mask_path = split_dir / case_id / "mask.nii.gz"
     mask_data, _ = load_nifti(str(mask_path))
 
     image = np.stack(img_list, axis=0)
