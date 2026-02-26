@@ -1,5 +1,13 @@
 # ISLES-2022 — Reproducible Experiment README (Portfolio)
 
+## Stable Portfolio Version
+
+The reproducible evaluation reviewed during recruitment corresponds to:
+
+✅ isles2022-v1.0-interview
+
+Active development continues on the repository.
+
 日本語版: [README.md](README.md)
 
 This folder is the public entry point for ISLES-2022 lesion-segmentation work,

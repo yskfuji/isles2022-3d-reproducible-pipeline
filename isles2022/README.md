@@ -1,5 +1,13 @@
 # ISLES-2022 — 再現性つき実験README（ポートフォリオ向け）
 
+## Stable Portfolio Version
+
+The reproducible evaluation reviewed during recruitment corresponds to:
+
+✅ isles2022-v1.0-interview
+
+Active development continues on the repository.
+
 English version: [README_en.md](README_en.md)
 
 対応する公開リポジトリ名: `isles2022-3d-reproducible-pipeline`
