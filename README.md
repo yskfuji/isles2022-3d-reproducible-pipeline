@@ -1,5 +1,22 @@
 # isles2022-3d-reproducible-pipeline
 
+## Stable Portfolio Version
+
+The reproducible evaluation reviewed during recruitment corresponds to:
+
+✅ isles2022-v1.0-interview
+
+Active development continues on the repository.
+
+## Commit Message Convention (Going Forward)
+
+To keep the repository easy to review, new commits follow a Conventional Commits style:
+
+- fix: leakage check in group split
+- feat: add calibration evaluation
+- refactor: manifest validation logic
+- docs: evaluation protocol clarification
+
 このディレクトリは **ISLES-2022 lesion segmentation** の公開・監査用パッケージです。
 
 推奨リポジトリ名: `isles2022-3d-reproducible-pipeline`
