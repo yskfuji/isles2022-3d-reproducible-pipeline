@@ -1,12 +1,12 @@
 # ISLES-2022 — 再現性つき実験README（ポートフォリオ向け）
 
-## Stable Portfolio Version
+## Stable Portfolio Version（固定スナップショット）
 
-The reproducible evaluation reviewed during recruitment corresponds to:
+採用選考でレビューされた「再現評価」は、次のタグに対応します：
 
 ✅ isles2022-v1.0-interview
 
-Active development continues on the repository.
+リポジトリは継続的に開発中です。
 
 English version: [README_en.md](README_en.md)
 
