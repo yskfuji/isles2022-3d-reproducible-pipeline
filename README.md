@@ -1,5 +1,7 @@
 # isles2022-3d-reproducible-pipeline
 
+**Language:** English | [日本語](README_ja.md)
+
 Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, with audit-ready documentation, threshold / postprocess sweeps, and size-stratified evaluation.
 
 **Quick links**
@@ -82,16 +84,6 @@ Not included:
 Active development continues on this repository. The stable review snapshot used for portfolio / interview review is:
 
 ✅ `isles2022-v1.0-interview`
-
-## Japanese summary
-
-このリポジトリは、**ISLES 2022 脳梗塞病変セグメンテーション**を第三者が理解しやすい形で再現できるよう整理した公開版です。
-
-- 何ができるか: 前処理 / 学習 / 評価 / 後処理 sweep / サイズ別解析
-- 強み: 3D U-Net ベース、しきい値最適化、small lesion の追跡
-- 最短確認: `python scripts/smoke_test.py --use_dummy_data`
-- 日本語入口: [isles2022/README.md](isles2022/README.md)
-- 英語入口: [isles2022/README_en.md](isles2022/README_en.md)
 
 ## How to cite
 
