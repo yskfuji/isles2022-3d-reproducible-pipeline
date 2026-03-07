@@ -1,29 +1,29 @@
 # isles2022-3d-reproducible-pipeline
 
-**Language:** English | [日本語](README_ja.md)
+**Language:** English | [Japanese](README_ja.md)
 
 Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, with audit-ready documentation, threshold / postprocess sweeps, and size-stratified evaluation.
 
 **Quick links**
 - English entry: [isles2022/README_en.md](isles2022/README_en.md)
-- 日本語入口: [isles2022/README.md](isles2022/README.md)
-- Detailed experiment docs: [isles2022/README_en.md](isles2022/README_en.md)
+- Japanese entry: [isles2022/README.md](isles2022/README.md)
+- Detailed documentation: [isles2022/README_en.md](isles2022/README_en.md)
 - Citation: [CITATION.cff](CITATION.cff)
 - Release note source: [docs/releases/v1.0-interview.md](docs/releases/v1.0-interview.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
 
 ## What this repository provides
 
-- Reproducible preprocess → train → evaluate workflow for ISLES 2022 lesion segmentation
-- 3D U-Net based baseline with explicit threshold and connected-component sweeps
-- Size-aware reporting for small-lesion difficulty
+- A reproducible preprocess-train-evaluate workflow for ISLES 2022 lesion segmentation
+- A 3D U-Net baseline with explicit threshold and connected-component sweeps
+- Size-aware reporting for small-lesion performance
 - Portfolio-ready documentation for external review
-- A no-data smoke test that verifies repository wiring in under a minute
+- A no-data smoke test that checks the public bundle in under a minute
 
 ## Who this is for
 
 - Hiring managers reviewing medical AI segmentation work
-- ML engineers who want an auditable MRI segmentation baseline
+- ML engineers looking for an auditable MRI segmentation baseline
 - Researchers looking for a reproducible ISLES-style project structure
 
 ## 3-minute overview
@@ -62,8 +62,8 @@ python tools/make_manifest.py
 
 ### 3. Run full preprocessing / training / evaluation with your own data
 
-- English full guide: [isles2022/README_en.md](isles2022/README_en.md)
-- 日本語詳細: [isles2022/README.md](isles2022/README.md)
+- Full guide in English: [isles2022/README_en.md](isles2022/README_en.md)
+- Full guide in Japanese: [isles2022/README.md](isles2022/README.md)
 
 ## What is included vs excluded
 
@@ -81,7 +81,7 @@ Not included:
 
 ## Stable portfolio version
 
-Active development continues on this repository. The stable review snapshot used for portfolio / interview review is:
+Active development continues in this repository. The stable snapshot used for portfolio and interview review is:
 
 ✅ `isles2022-v1.0-interview`
 

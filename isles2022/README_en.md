@@ -1,15 +1,18 @@
 # ISLES-2022 — Reproducible Experiment README (Portfolio)
 
+**Language:** English | [Japanese](README.md)
+
 This folder is the **public entry point** for the ISLES 2022 lesion-segmentation pipeline. It is designed so an external reviewer can understand the project value, representative results, and the fastest way to try it before reading the full experiment notes.
 
 ## What a reviewer can verify quickly
 
 - **What it does**: preprocess / train / evaluate a 3D U-Net based ISLES pipeline
+- **What it does**: preprocesses data, trains models, and evaluates a 3D U-Net-based ISLES pipeline
 - **Who it is for**: hiring managers, ML engineers, and researchers who want reproducible MRI segmentation work
 - **Fastest first run**: `python ../scripts/smoke_test.py --use_dummy_data`
 - **Representative metrics**:
   - local test mean Dice: **~0.622**
-  - fold0 val mean Dice: **0.7539**
+  - fold0 validation mean Dice: **0.7539**
   - lesion-wise precision: **0.516**
   - HD95: **12.38 mm**
 
@@ -24,11 +27,9 @@ This folder is the **public entry point** for the ISLES 2022 lesion-segmentation
 
 The reproducible evaluation reviewed during recruitment corresponds to:
 
-✅ isles2022-v1.0-interview
+✅ `isles2022-v1.0-interview`
 
 Active development continues on the repository.
-
-日本語版: [README.md](README.md)
 
 This folder is the public entry point for ISLES-2022 lesion-segmentation work,
 organized so a third party can understand and rerun the pipeline with their own data.
@@ -101,9 +102,9 @@ python -m src.evaluation.evaluate_isles \
 
 ## 3. Current highlights (portfolio notes)
 
-- The pipeline focuses on 3D U-Net with explicit threshold/postprocess sweeps.
+- The pipeline centers on a 3D U-Net with explicit threshold and post-processing sweeps.
 - Small-lesion difficulty is tracked using size-stratified evaluation.
-- Existing reports include runs around mean Dice ~0.62 on test (configuration-dependent).
+- Existing reports include test runs with mean Dice around 0.62, depending on configuration.
 
 ---
 
