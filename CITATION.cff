@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as follows."
+title: "ISLES 2022 3D Reproducible Pipeline"
+type: software
+version: "isles2022-v1.0-interview"
+date-released: "2026-02-27"
+authors:
+  - family-names: "Fujinami"
+    given-names: "Yusuke"
+repository-code: "https://github.com/yskfuji/isles2022-3d-reproducible-pipeline"
+url: "https://github.com/yskfuji/isles2022-3d-reproducible-pipeline"
+abstract: >-
+  Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022
+  with audit-ready documentation, threshold/postprocess evaluation, and
+  size-stratified reporting.
+keywords:
+  - medical-imaging
+  - segmentation
+  - 3d-unet
+  - mri
+  - stroke
+  - reproducibility
+license: "See LICENSE"

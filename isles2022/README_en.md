@@ -1,5 +1,25 @@
 # ISLES-2022 — Reproducible Experiment README (Portfolio)
 
+This folder is the **public entry point** for the ISLES 2022 lesion-segmentation pipeline. It is designed so an external reviewer can understand the project value, representative results, and the fastest way to try it before reading the full experiment notes.
+
+## What a reviewer can verify quickly
+
+- **What it does**: preprocess / train / evaluate a 3D U-Net based ISLES pipeline
+- **Who it is for**: hiring managers, ML engineers, and researchers who want reproducible MRI segmentation work
+- **Fastest first run**: `python ../scripts/smoke_test.py --use_dummy_data`
+- **Representative metrics**:
+  - local test mean Dice: **~0.622**
+  - fold0 val mean Dice: **0.7539**
+  - lesion-wise precision: **0.516**
+  - HD95: **12.38 mm**
+
+## Quick links
+
+- Japanese version: [README.md](README.md)
+- Citation: `../CITATION.cff`
+- Release-note source: `../docs/releases/v1.0-interview.md`
+- Roadmap: `../ROADMAP.md`
+
 ## Stable Portfolio Version
 
 The reproducible evaluation reviewed during recruitment corresponds to:

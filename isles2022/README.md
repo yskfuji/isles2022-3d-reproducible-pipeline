@@ -1,5 +1,26 @@
 # ISLES-2022 — 再現性つき実験README（ポートフォリオ向け）
 
+このフォルダは、**ISLES 2022 病変セグメンテーション公開版の入口**です。採用・監査・外部レビューの最初の接点として、価値・結果・最短の試し方を先に見せる構成へ寄せています。
+
+## まず分かること
+
+- **何ができるか**: 前処理 / 学習 / 評価 / threshold sweep / postprocess sweep
+- **誰向けか**: 採用担当、MRI セグメンテーション実装を見たい ML エンジニア、再現性重視の研究者
+- **最短確認**: `python ../scripts/smoke_test.py --use_dummy_data`
+- **成果の目安**:
+  - local test mean Dice: **約 0.622**
+  - fold0 val mean Dice: **0.7539**
+  - lesion-wise precision: **0.516**
+  - HD95: **12.38 mm**
+
+## すぐ使うリンク
+
+- English version: [README_en.md](README_en.md)
+- 詳細コード / 実験: `../core/pipeline/`
+- 引用情報: `../CITATION.cff`
+- リリースノート原稿: `../docs/releases/v1.0-interview.md`
+- ロードマップ: `../ROADMAP.md`
+
 ## Stable Portfolio Version（固定スナップショット）
 
 採用選考でレビューされた「再現評価」は、次のタグに対応します：
@@ -7,8 +28,6 @@
 ✅ isles2022-v1.0-interview
 
 リポジトリは継続的に開発中です。
-
-English version: [README_en.md](README_en.md)
 
 対応する公開リポジトリ名: `isles2022-3d-reproducible-pipeline`
 
