@@ -1,24 +1,24 @@
 # isles2022-3d-reproducible-pipeline
 
-**Language:** 日本語 | [English](README.md)
+**言語:** 日本語 | [English](README.md)
 
-ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーションパイプライン**です。監査しやすいドキュメント、threshold / postprocess sweep、サイズ別評価を含みます。
+ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーションパイプライン**です。監査しやすいドキュメント、しきい値・後処理のスイープ、サイズ別評価を含みます。
 
 **クイックリンク**
 - 英語入口: [isles2022/README_en.md](isles2022/README_en.md)
 - 日本語入口: [isles2022/README.md](isles2022/README.md)
 - 実験詳細: [isles2022/README.md](isles2022/README.md)
-- Citation: [CITATION.cff](CITATION.cff)
+- 引用情報: [CITATION.cff](CITATION.cff)
 - リリースノート原稿: [docs/releases/v1.0-interview.md](docs/releases/v1.0-interview.md)
 - ロードマップ: [ROADMAP.md](ROADMAP.md)
 
 ## このリポジトリで分かること
 
-- ISLES 2022 病変セグメンテーションの preprocess → train → evaluate ワークフロー
-- 3D U-Net ベースラインと threshold / connected-component sweep
+- ISLES 2022 病変セグメンテーションの前処理 → 学習 → 評価ワークフロー
+- 3D U-Net ベースラインと、しきい値・連結成分のスイープ
 - 小病変を意識したサイズ別レポート
 - 外部レビュー向けに整理したポートフォリオ導線
-- 実データ不要で配線確認できる no-data smoke test
+- 実データなしで配線確認できる簡易動作確認
 
 ## 想定読者
 
@@ -28,24 +28,24 @@ ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーシ
 
 ## 3分で分かる概要
 
-![ISLES architecture](docs/assets/architecture.svg)
+![ISLES パイプライン構成図](docs/assets/architecture.svg)
 
-![ISLES repository map](docs/assets/repo_map.svg)
+![ISLES リポジトリ構成図](docs/assets/repo_map.svg)
 
-![ISLES metrics snapshot](docs/assets/results_snapshot.svg)
+![ISLES 指標サマリー](docs/assets/results_snapshot.svg)
 
 ### 代表指標
 
 | 指標 | 値 | 意味 |
 |---|---:|---|
 | Local test mean Dice | ≈ 0.622 @ threshold 0.20 | 公開レシピの実用的な性能目安 |
-| Fold0 validation mean Dice | 0.7539 | in-distribution な validation の強さ |
+| Fold0 validation mean Dice | 0.7539 | 同分布の検証データにおける性能 |
 | Lesion-wise precision | 0.516 | FP 制御とのトレードオフ |
 | HD95 | 12.38 mm | 境界品質の指標 |
 
-> 数値は同梱レシピ / 評価メモ由来です。医療データ本体は公開物に含めていません。
+> 数値は同梱レシピと評価メモに基づきます。医療データ本体は公開物に含めていません。
 
-## Quickstart
+## 最短の試し方
 
 ### 1. 実データなしで配線確認
 
@@ -63,7 +63,7 @@ python tools/make_manifest.py
 ### 3. 実データで前処理 / 学習 / 評価
 
 - 日本語詳細: [isles2022/README.md](isles2022/README.md)
-- English full guide: [isles2022/README_en.md](isles2022/README_en.md)
+- 英語版の詳細: [isles2022/README_en.md](isles2022/README_en.md)
 
 ## 含まれるもの / 含まれないもの
 
@@ -79,17 +79,17 @@ python tools/make_manifest.py
 - `results/`
 - `logs/`
 
-## Stable portfolio version
+## Stable Portfolio Version（固定スナップショット）
 
 開発は継続中ですが、ポートフォリオ / 面接レビュー用の固定版は次のタグです。
 
 ✅ `isles2022-v1.0-interview`
 
-## How to cite
+## 引用方法
 
 [CITATION.cff](CITATION.cff) を参照してください。
 
-## Commit message convention
+## コミットメッセージ規約
 
 今後の変更は Conventional Commits（`type: summary`）で揃えます。
 
