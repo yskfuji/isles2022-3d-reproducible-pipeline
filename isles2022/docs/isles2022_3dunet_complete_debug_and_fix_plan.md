@@ -20,14 +20,14 @@
 
 ## 1. 確定している前提条件（変更禁止）
 ### モデル・推論
-- Model: **3D U-Net（レトロ構造）**
+- Model: **3D U-Net（従来型の構造）**
 - Input: DWI / ADC / FLAIR（3ch）
 - patch_size: [64,64,48]
 - overlap: 0.5
 - TTA: full
 - temperature: 1.0
-- threshold sweep: 0.05–0.95 (step=0.05)
-- min_size: 0（baseline）
+- しきい値スイープ: 0.05–0.95（step=0.05）
+- min_size: 0（基準設定）
 
 ### データ特性（ISLES2022）
 - test: 25 cases（全例 GT>0）
@@ -82,7 +82,7 @@
   - 最良epochがズレるなら **部分支持**
 
 ### H3: 確率未校正（thr=0.8依存）
-- thr=0.8 で最良という事実は calibration 不良の兆候
+- thr=0.8 で最良という事実は、校正不良の兆候
 - ただし校正は Dice を劇的には上げない
 - 検証:
   - temperature / isotonic で thr が安定するか
@@ -91,7 +91,7 @@
 ### H4: 後処理なし設計が FP を支配
 - FP component 数・サイズ分布を見ると即断できる
 - 検証:
-  - CC + min_size sweep で Dice が +0.05 以上改善 → **支持**
+  - CC + min_size のスイープで Dice が +0.05 以上改善 → **支持**
 
 ### H5: fg033 サンプリング不足
 - patch内 GT voxel 数が小さすぎると勾配が背景に吸われる
@@ -120,7 +120,7 @@
 - Tversky (α/β sweep)
 
 ### PR-3: 後処理（CC + min_size）
-- min_size sweep: 0, 20, 25, 30, 50, 100, 200
+- min_size のスイープ: 0, 20, 25, 30, 50, 100, 200
 - top_k: None, 1, 3, 5
 
 ### PR-4: z-spacing 対応
@@ -133,7 +133,7 @@
 - 正しいサンプリング + 後処理あり:
   - **Dice ≈ 0.55–0.62**
 - 0.60超え条件:
-  1. small lesion recall ≥ 0.6
+  1. 小病変の recall ≥ 0.6
   2. FP CC p90 size ≤ GT median
   3. spacing 整合
 
@@ -159,7 +159,7 @@
 
 ### 7.2 低〜中コストの優先順位（効く順）
 1) **サンプリングを正す（最優先）**
-- 目的: small lesion の「モデルがGTに確率を出さない」状態を崩す
+- 目的: 小病変に対して「モデルが GT に十分な確率を出さない」状態を崩す
 - 具体:
   - `data.target_pos_patch_frac=0.8`（正例症例の8割をFG中心）
   - `data.fg_component_sampling=inverse_size`（小さいCCを優先して中心サンプル）
@@ -196,7 +196,7 @@ PYTHONPATH=$PWD /opt/anaconda3/bin/conda run -p /opt/anaconda3 --no-capture-outp
   --config configs/generated/_thin_fix_20251223/medseg_3d_unet_e20_dwi_adc_flair_fp_ohem_balanced_fg033_ps482424_ch48_pr2prod_dice_bce_pw4p0_bw0p5_thinfix_pos80_fgccinv_a1.yaml
 ```
 
-test評価（推論は `tta=none` と `tta=flip` を両方。resample=2.0, slice-spacingはraw固定）:
+test 評価（推論は `tta=none` と `tta=flip` を両方実施。resample=2.0、slice-spacing は raw 固定）:
 ```zsh
 cd /Users/yusukefujinami/ToReBrain/pipeline
 MODEL=runs/3d_unet/medseg_3d_unet_e20_dwi_adc_flair_fp_ohem_balanced_fg033_ps482424_ch48_pr2prod_dice_bce_pw4p0_bw0p5_thinfix_pos80_fgccinv_a1/best.pt

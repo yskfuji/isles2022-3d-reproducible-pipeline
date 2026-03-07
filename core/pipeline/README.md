@@ -1,8 +1,10 @@
-# Redirect to ISLES README
+# ISLES README への案内
 
-このファイルは `github_public_isles` 公開物では入口として使用しません。
+**言語:** 日本語 | [英語版](README_en.md)
 
-ISLES-2022 向けの公開手順・監査導線は、次の README を参照してください。
+このファイルは公開物の入口としては使用しません。
 
-- 日本語: `../../isles2022/README.md`
-- English: `../../isles2022/README_en.md`
+ISLES-2022 向けの公開手順と監査導線は、次の README を参照してください。
+
+- 日本語: [../../isles2022/README.md](../../isles2022/README.md)
+- 英語: [../../isles2022/README_en.md](../../isles2022/README_en.md)

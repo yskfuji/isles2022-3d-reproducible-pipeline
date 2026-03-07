@@ -1,8 +1,10 @@
-# Redirect to ISLES README
+# Redirect to the ISLES README
 
-This file is not used as an entry point in the `github_public_isles` package.
+**Language:** English | [Japanese](README.md)
 
-For ISLES-2022 public instructions and audit navigation, see:
+This file is not used as a public entry point.
 
-- Japanese: `../../isles2022/README.md`
-- English: `../../isles2022/README_en.md`
+For public instructions and audit navigation for ISLES 2022, see:
+
+- Japanese: [../../isles2022/README.md](../../isles2022/README.md)
+- English: [../../isles2022/README_en.md](../../isles2022/README_en.md)

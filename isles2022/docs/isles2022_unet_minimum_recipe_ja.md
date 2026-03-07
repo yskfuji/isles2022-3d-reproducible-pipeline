@@ -163,9 +163,9 @@
 - 推論：**3Dスライディングウィンドウ**でフルボリューム再構成
 - 出力：確率マップ → 二値化
   - 学習中の簡易valは **0.5 固定**（学習の進捗監視用）
-  - **比較・報告は run ごとに `evaluate_isles` の `best_all` 閾値を採用**（threshold sweep で決める）
+  - **比較・報告では run ごとに `evaluate_isles` の `best_all` 閾値を採用**（しきい値スイープで決める）
 - Dice計算：
-  - **case-wise Dice（症例ごとDice → 平均）**
+  - **症例ごとの Dice を計算し、その平均を使う**
 - GTが空の症例（空病変）がある場合：
   - ルールを固定する（推奨：**平均から除外**）
   - ※ここがブレると平均Diceが簡単に動く
@@ -175,7 +175,7 @@
 ## 11) 推論強化（TTA と アンサンブルで安定性を上げる）
 
 ### TTA（軽量で効く）
-- flip（左右など）を適用して推論
+- 左右反転などを適用して推論
 - 予測確率を元に戻して平均
 - 最後に閾値0.5で二値化
 
@@ -192,7 +192,7 @@
 - normalize：非ゼロ領域で clip(0.5–99.5%) → zscore
 - patch：128³（無理なら96³）
 - batch：1
-- aug：flip + 軽回転/軽スケール + 強度ゆらぎ + 軽ノイズ/軽ぼかし
+- aug：左右反転 + 軽い回転 / 軽いスケール変更 + 強度ゆらぎ + 軽いノイズ / 軽いぼかし
 - model：3D U-Net（4down、32start、InstanceNorm）
 - loss：Dice + BCE（1:1）
 - sampling：foreground 50% / random 50%
@@ -207,7 +207,7 @@
 
 - 5fold平均確率アンサンブル（`ts222=[2,2,2]`）の **test best mean_dice は約 0.622（best_threshold=0.20）**。
 - 病変サイズ別では **large は平均≈0.737** だが、**small/medium が平均≈0.48〜0.51** で頭打ち。
-- `min_size` / `top_k` の単純後処理は悪化しやすかった。
+- `min_size` / `top_k` による単純な後処理は悪化しやすかった。
 - `cc_score`（連結成分の確率支持でフィルタ）は **FP連結成分は減るが mean_dice の改善はごく小さい**（≈0.6228 程度）。
 
 ## ポートフォリオ用（推奨）：従来課題（FP過多）に効いた設定（fp2 / fold0-val）
@@ -215,10 +215,10 @@
 従来課題（**FP過多で病変を立てすぎる**）の解決に直結して効いたのは **fp2**。
 
 - 設定：`medseg_3d_unet_fp2_conservative_bce2_pw05_dicebce_autothr_basech48_e120_kfold5_f0_ts222`
-- 評価条件：fold0 / split=val / n=46 / TTA=flip / threshold sweep（mean Dice最大）
-- 結果（best threshold = **0.14**）
+- 評価条件：fold0 / split=val / n=46 / TTA=flip / しきい値スイープ（mean Dice 最大）
+- 結果（最良のしきい値 = **0.14**）
   - best mean Dice：**0.753930**
-  - lesion-wise：precision_micro **0.752174** / recall_micro **0.628000** / f1_micro **0.684501**
+  - lesion-wise 指標：precision_micro **0.752174** / recall_micro **0.628000** / f1_micro **0.684501**
   - mean_fp_cc：**1.913043**（FP連結成分の平均）
 
 出典（このファイルが「一次情報」）：
@@ -227,7 +227,7 @@
 
 ポートフォリオ記載の最小テンプレ（1行で意図が伝わる）：
 
-> ISLES2022（local fold0-val n=46）：mean Dice=0.7539（TTA=flip, thr=0.14）/ lesion-wise precision=0.7522（FP抑制）
+> ISLES2022（local fold0-val n=46）：mean Dice=0.7539（TTA=flip, thr=0.14）/ lesion-wise precision=0.7522（FP 抑制に有効）
 
 再現コマンド（同じ評価を作り直す場合）：
 
@@ -257,9 +257,9 @@ TORCH_DEVICE=cpu PYTHONPATH=$PWD /opt/anaconda3/envs/medseg_unet/bin/python -m s
 
 ポートフォリオ記載の最小テンプレ（test / 5fold ensemble）：
 
-> ISLES2022（local test, 5fold mean-prob ensemble）：mean Dice≈0.622（thr=0.20）/ lesion-wise precision=0.516（FP抑制の難しさも併記）
+> ISLES2022（local test, 5fold mean-prob ensemble）：mean Dice≈0.622（thr=0.20）/ lesion-wise precision=0.516（FP 抑制の難しさも併記）
 
-`evaluate_isles` に `--extra-metrics` を追加し、**mean Dice が最大になる閾値（best_threshold_by_mean_dice）**で以下を `summary.json` に保存します。
+`evaluate_isles` に `--extra-metrics` を追加し、**mean Dice が最大になるしきい値（best_threshold_by_mean_dice）**で以下を `summary.json` に保存します。
 
 - 公式4指標相当（ローカル定義）
   - Dice（per-threshold から best を採用）
@@ -301,7 +301,7 @@ cd /Users/yusukefujinami/ToReBrain/pipeline
 
 ## まずやる解析（症例別の落ち方を固定化）
 
-`evaluate_isles` が吐く `metrics.json` から、best閾値（summaryのbest）で症例別Dice/Precision/Recallとエラータイプ（FP優勢/FN優勢/見逃し）をCSV化する。
+`evaluate_isles` が出力する `metrics.json` から、最良しきい値（summary の best）で症例別の Dice / Precision / Recall とエラータイプ（FP 優勢 / FN 優勢 / 見逃し）を CSV 化する。
 
 ```zsh
 cd /Users/yusukefujinami/ToReBrain/pipeline
@@ -317,7 +317,7 @@ cd /Users/yusukefujinami/ToReBrain/pipeline
 
 ## 後処理の追加スイープ（cc_score）
 
-`min_size/top_k` で改善しない場合、FP連結成分だけ落とす `cc_score` を軽くスイープする。
+`min_size/top_k` で改善しない場合は、FP 連結成分だけを落とす `cc_score` を軽くスイープする。
 
 ```zsh
 cd /Users/yusukefujinami/ToReBrain/pipeline
@@ -361,10 +361,10 @@ done
   - fold0だけ200で他が100だった期間があるため、最終判断は「全fold=200（同条件）」を推奨
 3. **解像度（target spacing）を上げる**
   - `2mm`は small 病変が潰れやすい。`1.5mm`や`1mm`（計算重い）を検討
-4. **推論側：TTAを投入（まずflip、次にfull）**
+4. **推論側：TTA を導入（まず flip、次に full）**
   - コストは増えるが、small/mediumの揺れを抑えやすい
-- val：case-wise Dice、空病変扱いは固定
-- infer：sliding window + TTA（flip） + optional 3-model ensemble
+- val：症例ごとの Dice を使い、空病変の扱いは固定
+- infer：sliding window + TTA（flip） + 必要に応じて 3 モデル ensemble
 
 ---
 
@@ -375,7 +375,7 @@ done
 - 正規化が症例間で一貫していない（brain領域でzscore推奨）
 - resampleが不統一（空間スケールがズレている）
 - BatchNormを使っている（batch=1で崩れやすい）
-- val の Dice定義がブレている（case-wise/空病変の扱い）
+- val の Dice 定義が揺れている（症例単位で集計するか、空病変をどう扱うか）
 
 ---
 
@@ -397,7 +397,7 @@ done
   - 既存実験: `tversky_ohem_bce` など（FN寄り・OHEM併用）
 - Valしきい値
   - レシピ: まず0.5固定で比較を崩さない
-  - 既存実験: valでしきい値をauto選択（testではthreshold sweepで最適を報告）
+  - 既存実験: val ではしきい値を自動選択（test ではしきい値スイープで最適値を報告）
 
 ## レシピ準拠の「比較用」新条件（config）
 
@@ -415,9 +415,9 @@ done
 
 ## 評価の定義（重要ポイント）
 
-- `mean_dice`：case-wise Dice の平均（症例ごとDice→平均）
+- `mean_dice`：症例ごとの Dice の平均
 - GTが空（negative case）も平均に含める（FPを出すとDiceが下がる）
-- `best_all`：`per_threshold[]` から `mean_dice` 最大の閾値を採用（threshold sweep）
+- `best_all`：`per_threshold[]` から `mean_dice` が最大のしきい値を採用（しきい値スイープ）
 - `detection_rate_case`：GT陽性（gt_vox>0）のみで「1 voxelでもTPがあれば検出」
 - `false_alarm_rate_case`：GT陰性のみで「1 voxelでも予測が出たら誤警報」
 - 薄スライス集計：`by_slice_spacing` は NIfTI zoom の max を bucket 分け（デフォルト `3.0mm`）
@@ -426,7 +426,7 @@ done
 ## 比較ルール
 
 - 学習中の監視：`val_threshold=0.5` 固定
-- 実験比較/報告：threshold sweep で得た `best_all` を採用
+- 実験比較 / 報告：しきい値スイープで得た `best_all` を採用
 
 ---
 
