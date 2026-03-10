@@ -8,6 +8,7 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 - English entry: [isles2022/README_en.md](isles2022/README_en.md)
 - Japanese entry: [isles2022/README.md](isles2022/README.md)
 - Detailed documentation: [isles2022/README_en.md](isles2022/README_en.md)
+- Reproducibility checklist: [docs/reproducibility_checklist.md](docs/reproducibility_checklist.md)
 - Citation: [CITATION.cff](CITATION.cff)
 - Release note source: [docs/releases/v1.0-interview.md](docs/releases/v1.0-interview.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
