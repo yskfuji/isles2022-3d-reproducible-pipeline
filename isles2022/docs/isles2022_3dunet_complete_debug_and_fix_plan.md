@@ -43,8 +43,8 @@
   - sat1≈0.011（上下clipあり）
 
 ### 観測結果（test sweep）
-- best Dice = **0.385 @ thr=0.80**
-- P≈0.684 / R≈0.430
+- best Dice = **0.395 @ thr=0.80**
+- P≈0.771 / R≈0.386
 - thr≤0.15: recall≈1.0, precision≈0.01（FPの海）
 
 ---
