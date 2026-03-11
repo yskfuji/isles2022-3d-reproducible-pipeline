@@ -20,14 +20,14 @@ This folder is the **public entry point** for the ISLES 2022 lesion-segmentation
 
 - Japanese version: [README.md](README.md)
 - Citation: `../CITATION.cff`
-- Release-note source: `../docs/releases/v1.0-interview.md`
+- Release-note source: `../docs/releases/v0.3.0-isles.md`
 - Roadmap: `../ROADMAP.md`
 
 ## Stable Portfolio Version
 
-The reproducible evaluation reviewed during recruitment corresponds to:
+The current portfolio snapshot corresponds to:
 
-✅ `isles2022-v1.0-interview`
+✅ `v0.3.0-isles`
 
 Active development continues on the repository.
 

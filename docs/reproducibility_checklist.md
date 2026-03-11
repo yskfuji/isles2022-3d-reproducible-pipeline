@@ -12,7 +12,7 @@ Use this page as a fast external-review checklist for the public ISLES 2022 3D r
 
 - Read the landing page: `README.md` or `README_ja.md`.
 - Read the task-facing guide: `isles2022/README_en.md` or `isles2022/README.md`.
-- Read the release note source under `docs/releases/v1.0-interview.md`.
+- Read the release note source under `docs/releases/v0.3.0-isles.md`.
 - Confirm the reported metrics and task description are consistent across those files.
 
 ## 3. Code-path sanity

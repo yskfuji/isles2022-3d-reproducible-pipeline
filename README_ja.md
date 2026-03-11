@@ -9,9 +9,9 @@ ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーシ
 - 日本語版: [isles2022/README.md](isles2022/README.md)
 - 実験詳細: [isles2022/README.md](isles2022/README.md)
 - 再現性チェックリスト: [docs/reproducibility_checklist.md](docs/reproducibility_checklist.md)
-- GitHub About 設定原稿: [英語版](docs/github_about.md) | [日本語版](docs/github_about_ja.md)
+- GitHub About 欄の説明文: [英語版](docs/github_about.md) | [日本語版](docs/github_about_ja.md)
 - 引用情報: [CITATION.cff](CITATION.cff)
-- リリースノート原稿: [英語版](docs/releases/v1.0-interview.md) | [日本語版](docs/releases/v1.0-interview_ja.md)
+- リリースノート原稿: [英語版](docs/releases/v0.3.0-isles.md) | [日本語版](docs/releases/v0.3.0-isles_ja.md)
 - ロードマップ: [ROADMAP.md](ROADMAP.md)
 
 ## このリポジトリでできること
@@ -19,7 +19,7 @@ ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーシ
 - ISLES 2022 病変セグメンテーションの前処理 → 学習 → 評価ワークフロー
 - 3D U-Net ベースラインと、しきい値・連結成分のスイープ
 - 小病変を意識したサイズ別レポート
-- 外部レビュー向けに整理したポートフォリオ向けの案内
+- 外部レビュー向けに整理したポートフォリオ用ドキュメント
 - 実データなしで公開物が正しく動くかを確かめる簡易動作確認
 
 ## 想定している読者
@@ -83,9 +83,9 @@ python tools/make_manifest.py
 
 ## 固定スナップショット（ポートフォリオ用）
 
-開発は継続中ですが、ポートフォリオ / 面接レビュー用の固定スナップショットは次のタグです。
+開発は継続中ですが、現行のポートフォリオ用固定スナップショットは次のタグです。
 
-✅ `isles2022-v1.0-interview`
+✅ `v0.3.0-isles`
 
 ## 引用
 
