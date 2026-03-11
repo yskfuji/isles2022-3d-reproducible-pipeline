@@ -10,9 +10,9 @@
 - **誰向けか**: 採用担当、MRI セグメンテーション実装を見たい ML エンジニア、再現性重視の研究者
 - **最短確認**: `python ../scripts/smoke_test.py --use_dummy_data`
 - **成果の目安**:
-  - local test mean Dice: **約 0.622**
-  - fold0 validation mean Dice: **0.7539**
-  - lesion-wise precision: **0.516**
+  - ローカルテストの平均 Dice: **約 0.622**
+  - fold0 検証の平均 Dice: **0.7539**
+  - 病変単位の適合率: **0.516**
   - HD95: **12.38 mm**
 
 ## すぐ使うリンク
@@ -49,7 +49,6 @@
 
 ## 1. コードマップ
 
-- 前処理（ISLES-2022 生データ→学習用形式）
 - 前処理（ISLES-2022 生データ → 学習用形式）
   - `../core/pipeline/src/preprocess/prepare_isles2022.py`
 - 学習（3D U-Net）
@@ -107,7 +106,7 @@ python -m src.evaluation.evaluate_isles \
 
 - 3D U-Net を主軸に、しきい値スイープと後処理スイープを分けて検証しています。
 - 小病変では Dice が下がりやすいため、その傾向をサイズ別指標で追跡しています。
-- 既存レポートでは、test で mean Dice が 0.62 前後となる結果を確認しています（設定依存）。
+- 既存レポートでは、テストで平均 Dice が 0.62 前後となる結果を確認しています（設定依存）。
 
 ---
 
