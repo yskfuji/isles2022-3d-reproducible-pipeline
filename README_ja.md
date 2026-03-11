@@ -9,8 +9,9 @@ ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーシ
 - 日本語版: [isles2022/README.md](isles2022/README.md)
 - 実験詳細: [isles2022/README.md](isles2022/README.md)
 - 再現性チェックリスト: [docs/reproducibility_checklist.md](docs/reproducibility_checklist.md)
+- GitHub About 設定原稿: [英語版](docs/github_about.md) | [日本語版](docs/github_about_ja.md)
 - 引用情報: [CITATION.cff](CITATION.cff)
-- リリースノート原稿: [docs/releases/v1.0-interview.md](docs/releases/v1.0-interview.md)
+- リリースノート原稿: [英語版](docs/releases/v1.0-interview.md) | [日本語版](docs/releases/v1.0-interview_ja.md)
 - ロードマップ: [ROADMAP.md](ROADMAP.md)
 
 ## このリポジトリでできること
