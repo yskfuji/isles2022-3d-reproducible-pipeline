@@ -43,6 +43,25 @@ organized so a third party can understand and rerun the pipeline with their own 
 - `Datasets/`, `runs/`, and `results/` are intentionally excluded from this public export.
 - The fastest way to understand the project is: preprocess → train → evaluate.
 
+## Benchmark summary
+
+### Overall snapshot
+
+| Split | Operating point | Mean Dice | Lesion precision | Lesion recall | HD95 |
+|---|---|---:|---:|---:|---:|
+| Fold0 validation | TTA=flip, threshold 0.14 | 0.7539 | 0.7522 | n/a | n/a |
+| Local test | 5-fold mean-prob ensemble, threshold 0.20 | 0.622 | 0.5161 | 0.5927 | 12.38 mm |
+
+### Size-stratified Dice on the published local-test recipe
+
+Buckets follow the evaluator default: small `<250` vox, medium `250-999` vox, large `>=1000` vox.
+
+| GT lesion size | Cases | Mean Dice @ threshold 0.20 | Median Dice | Detection rate |
+|---|---:|---:|---:|---:|
+| Small | 5 | 0.4818 | 0.5870 | 0.80 |
+| Medium | 7 | 0.5107 | 0.5310 | 1.00 |
+| Large | 13 | 0.7368 | 0.8157 | 1.00 |
+
 ---
 
 ## 1. Code map

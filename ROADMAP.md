@@ -11,7 +11,7 @@
 - [x] Add `CITATION.cff`
 - [x] Add release-note source files under `docs/releases/`
 - [x] Add a reproducibility checklist page for external reviewers
-- [ ] Expand the benchmark summary table with per-size metrics
+- [x] Expand the benchmark summary table with per-size metrics
 
 ## Phase 3 — Distribution
 - [ ] Post an English launch thread on LinkedIn or X
