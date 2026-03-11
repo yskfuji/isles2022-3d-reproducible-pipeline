@@ -81,7 +81,7 @@ Not included:
 - `results/`
 - `logs/`
 
-## Stable portfolio version
+## Current portfolio snapshot
 
 Active development continues in this repository. The current portfolio snapshot is:
 

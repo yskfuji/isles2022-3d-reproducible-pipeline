@@ -23,7 +23,7 @@ This folder is the **public entry point** for the ISLES 2022 lesion-segmentation
 - Release-note source: `../docs/releases/v0.3.0-isles.md`
 - Roadmap: `../ROADMAP.md`
 
-## Stable Portfolio Version
+## Current Portfolio Snapshot
 
 The current portfolio snapshot corresponds to:
 
