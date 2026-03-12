@@ -20,14 +20,14 @@
 - 英語版: [README_en.md](README_en.md)
 - 詳細コード / 実験: `../core/pipeline/`
 - 引用情報: `../CITATION.cff`
-- リリースノート原稿: `../docs/releases/v0.3.0-isles.md`
+- リリースノート原稿: `../docs/releases/v0.4.0-isles.md`
 - ロードマップ: `../ROADMAP.md`
 
 ## 現行のポートフォリオ用スナップショット
 
 現行のポートフォリオ用スナップショットは、次のタグに対応します：
 
-✅ `v0.3.0-isles`
+✅ `v0.4.0-isles`
 
 リポジトリは継続的に開発中です。
 
@@ -150,7 +150,8 @@ python tools/register_model.py \
   --model-name isles-3d-unet \
   --version-label fold0-best \
   --checkpoint best.pt \
-  --selection-reason "fold0 で validation Dice が最良"
+  --selection-reason "fold0 で validation Dice が最良" \
+  --promotion-rule "val_dice>=0.75"
 ```
 
 このコマンドで `artifacts/registered_models/<model-name>/<version-label>/` を作り、以下をまとめます。
@@ -168,11 +169,15 @@ python tools/register_model.py \
   --model-name isles-3d-unet \
   --version-label fold0-best \
   --checkpoint best.pt \
+  --promotion-rule "val_dice>=0.75" \
   --mlflow-register \
   --mlflow-experiment isles-model-registration \
   --registered-model-name isles-3d-unet \
-  --registered-model-alias candidate
+  --promote-alias candidate \
+  --reject-alias needs-review
 ```
+
+promotion rule は `log.jsonl` の最終行にある最新指標に対して評価されます。条件を満たした場合に、作成した MLflow model version へ指定 alias を付けます。
 
 ---
 

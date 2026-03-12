@@ -20,14 +20,14 @@ This folder is the **public entry point** for the ISLES 2022 lesion-segmentation
 
 - Japanese version: [README.md](README.md)
 - Citation: `../CITATION.cff`
-- Release-note source: `../docs/releases/v0.3.0-isles.md`
+- Release-note source: `../docs/releases/v0.4.0-isles.md`
 - Roadmap: `../ROADMAP.md`
 
 ## Current Portfolio Snapshot
 
 The current portfolio snapshot corresponds to:
 
-✅ `v0.3.0-isles`
+✅ `v0.4.0-isles`
 
 Active development continues on the repository.
 
@@ -148,7 +148,8 @@ python tools/register_model.py \
   --model-name isles-3d-unet \
   --version-label fold0-best \
   --checkpoint best.pt \
-  --selection-reason "best validation Dice on fold0"
+  --selection-reason "best validation Dice on fold0" \
+  --promotion-rule "val_dice>=0.75"
 ```
 
 This command creates `artifacts/registered_models/<model-name>/<version-label>/` and stores:
@@ -166,11 +167,15 @@ python tools/register_model.py \
   --model-name isles-3d-unet \
   --version-label fold0-best \
   --checkpoint best.pt \
+  --promotion-rule "val_dice>=0.75" \
   --mlflow-register \
   --mlflow-experiment isles-model-registration \
   --registered-model-name isles-3d-unet \
-  --registered-model-alias candidate
+  --promote-alias candidate \
+  --reject-alias needs-review
 ```
+
+Promotion rules are evaluated against the latest metrics in `log.jsonl`. If the rule passes, the configured promotion alias is updated on the created MLflow model version.
 
 ---
 

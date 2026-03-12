@@ -11,7 +11,7 @@ ISLES 2022 向けの、**再現可能な 3D 脳梗塞病変セグメンテーシ
 - 再現性チェックリスト: [docs/reproducibility_checklist.md](docs/reproducibility_checklist.md)
 - GitHub About 欄の説明文: [英語版](docs/github_about.md) | [日本語版](docs/github_about_ja.md)
 - 引用情報: [CITATION.cff](CITATION.cff)
-- リリースノート原稿: [英語版](docs/releases/v0.3.0-isles.md) | [日本語版](docs/releases/v0.3.0-isles_ja.md)
+- リリースノート原稿: [英語版](docs/releases/v0.4.0-isles.md) | [日本語版](docs/releases/v0.4.0-isles_ja.md)
 - ロードマップ: [ROADMAP.md](ROADMAP.md)
 
 ## このリポジトリでできること
@@ -85,7 +85,7 @@ python tools/make_manifest.py
 
 開発は継続中ですが、現行のポートフォリオ用固定スナップショットは次のタグです。
 
-✅ `v0.3.0-isles`
+✅ `v0.4.0-isles`
 
 ## 引用
 
