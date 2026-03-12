@@ -12,4 +12,4 @@ ISLES 2022 の脳梗塞病変セグメンテーションを対象にした 3D U-
 medical-imaging, segmentation, 3d-unet, mri, stroke, isles2022, miccai, pytorch, reproducibility, healthcare-ai
 
 ## ウェブサイト
-https://github.com/yskfuji/isles2022-3d-reproducible-pipeline/blob/main/docs/reproducibility_checklist.md
+https://github.com/yskfuji/isles2022-3d-reproducible-pipeline/blob/main/docs/reproducibility_checklist_ja.md
