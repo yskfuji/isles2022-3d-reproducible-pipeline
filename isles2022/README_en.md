@@ -138,9 +138,43 @@ When `--mlflow` is enabled, this repository follows the same public tracking sch
   - `checkpoints/`: `last.pt`, `best.pt`, and any task-specific best-checkpoint variants
 - Goal: make run review easier across segmentation and classification repos without claiming a production MLOps platform
 
+## 4. Model registration stage
+
+The next MLOps step in this public portfolio is a registry-ready bundle created from a completed training run.
+
+```bash
+python tools/register_model.py \
+  --run-dir runs/3d_unet/<YOUR_RUN> \
+  --model-name isles-3d-unet \
+  --version-label fold0-best \
+  --checkpoint best.pt \
+  --selection-reason "best validation Dice on fold0"
+```
+
+This command creates `artifacts/registered_models/<model-name>/<version-label>/` and stores:
+
+- `registration.json`
+- `run_metadata/`
+- `training_trace/`
+- `checkpoints/`
+
+Optional MLflow handoff:
+
+```bash
+python tools/register_model.py \
+  --run-dir runs/3d_unet/<YOUR_RUN> \
+  --model-name isles-3d-unet \
+  --version-label fold0-best \
+  --checkpoint best.pt \
+  --mlflow-register \
+  --mlflow-experiment isles-model-registration \
+  --registered-model-name isles-3d-unet \
+  --registered-model-alias candidate
+```
+
 ---
 
-## 4. Current highlights (portfolio notes)
+## 5. Current highlights (portfolio notes)
 
 - The pipeline centers on a 3D U-Net with explicit threshold and post-processing sweeps.
 - Small-lesion difficulty is tracked using size-stratified evaluation.
@@ -149,7 +183,7 @@ When `--mlflow` is enabled, this repository follows the same public tracking sch
 
 ---
 
-## 5. Additional documents
+## 6. Additional documents
 
 - Minimum recipe (Japanese source)
   - `./docs/isles2022_unet_minimum_recipe_ja.md`

@@ -140,9 +140,43 @@ python -m src.evaluation.evaluate_isles \
   - `checkpoints/`: `last.pt`, `best.pt`, およびタスク固有の best 系チェックポイント
 - 目的: セグメンテーション系と分類系の run を同じ見方で追えるようにしつつ、本格的な本番用 MLOps 基盤を主張しないこと
 
+## 4. モデル登録ステージ
+
+この公開ポートフォリオでの次の MLOps 段階は、学習済み run から registry-ready な bundle を作ることです。
+
+```bash
+python tools/register_model.py \
+  --run-dir runs/3d_unet/<YOUR_RUN> \
+  --model-name isles-3d-unet \
+  --version-label fold0-best \
+  --checkpoint best.pt \
+  --selection-reason "fold0 で validation Dice が最良"
+```
+
+このコマンドで `artifacts/registered_models/<model-name>/<version-label>/` を作り、以下をまとめます。
+
+- `registration.json`
+- `run_metadata/`
+- `training_trace/`
+- `checkpoints/`
+
+MLflow へ引き渡す場合の例:
+
+```bash
+python tools/register_model.py \
+  --run-dir runs/3d_unet/<YOUR_RUN> \
+  --model-name isles-3d-unet \
+  --version-label fold0-best \
+  --checkpoint best.pt \
+  --mlflow-register \
+  --mlflow-experiment isles-model-registration \
+  --registered-model-name isles-3d-unet \
+  --registered-model-alias candidate
+```
+
 ---
 
-## 4. 現時点の要点（ポートフォリオ向け）
+## 5. 現時点の要点（ポートフォリオ向け）
 
 - 3D U-Net を主軸に、しきい値スイープと後処理スイープを分けて検証しています。
 - 小病変では Dice が下がりやすいため、その傾向をサイズ別指標で追跡しています。
@@ -151,7 +185,7 @@ python -m src.evaluation.evaluate_isles \
 
 ---
 
-## 5. 追加資料
+## 6. 追加資料
 
 - 最小レシピ（日本語）
   - `./docs/isles2022_unet_minimum_recipe_ja.md`
