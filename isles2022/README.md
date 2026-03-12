@@ -103,6 +103,14 @@ python -m src.training.train_3d_unet \
   --config configs/train_3d_unet_e20_dwi_adc_flair_fp_ohem_balanced.yaml
 ```
 
+任意の MLflow 連携:
+
+```bash
+python -m src.training.train_3d_unet \
+  --config configs/train_3d_unet_e20_dwi_adc_flair_fp_ohem_balanced.yaml \
+  --mlflow --mlflow-experiment isles-3d-unet
+```
+
 ### 2.3 評価
 
 ```bash
