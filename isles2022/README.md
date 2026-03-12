@@ -129,15 +129,29 @@ python -m src.evaluation.evaluate_isles \
 
 ---
 
-## 3. 現時点の要点（ポートフォリオ向け）
+## 3. MLflow 追跡スキーマ
+
+`--mlflow` を有効にした場合、この公開リポジトリでは 3 本のポートフォリオ用リポジトリで共通の追跡スキーマを使います。
+
+- 共通の run tag: `repo_name`, `task_type`, `model_family`, `tracking_schema=public_portfolio_v1`
+- 共通の artifact グループ:
+  - `run_metadata/`: `meta.json` と、存在する場合は設定スナップショットやタスク固有の JSON
+  - `training_trace/`: `log.jsonl`
+  - `checkpoints/`: `last.pt`, `best.pt`, およびタスク固有の best 系チェックポイント
+- 目的: セグメンテーション系と分類系の run を同じ見方で追えるようにしつつ、本格的な本番用 MLOps 基盤を主張しないこと
+
+---
+
+## 4. 現時点の要点（ポートフォリオ向け）
 
 - 3D U-Net を主軸に、しきい値スイープと後処理スイープを分けて検証しています。
 - 小病変では Dice が下がりやすいため、その傾向をサイズ別指標で追跡しています。
 - 既存レポートでは、テストで平均 Dice が 0.62 前後となる結果を確認しています（設定依存）。
 
+
 ---
 
-## 4. 追加資料
+## 5. 追加資料
 
 - 最小レシピ（日本語）
   - `./docs/isles2022_unet_minimum_recipe_ja.md`

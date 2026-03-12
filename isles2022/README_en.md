@@ -127,15 +127,29 @@ python -m src.evaluation.evaluate_isles \
 
 ---
 
-## 3. Current highlights (portfolio notes)
+## 3. MLflow tracking schema
+
+When `--mlflow` is enabled, this repository follows the same public tracking schema used across the three portfolio repositories.
+
+- Common run tags: `repo_name`, `task_type`, `model_family`, `tracking_schema=public_portfolio_v1`
+- Common artifact groups:
+  - `run_metadata/`: `meta.json` and, when available, a config snapshot or task-specific JSON
+  - `training_trace/`: `log.jsonl`
+  - `checkpoints/`: `last.pt`, `best.pt`, and any task-specific best-checkpoint variants
+- Goal: make run review easier across segmentation and classification repos without claiming a production MLOps platform
+
+---
+
+## 4. Current highlights (portfolio notes)
 
 - The pipeline centers on a 3D U-Net with explicit threshold and post-processing sweeps.
 - Small-lesion difficulty is tracked using size-stratified evaluation.
 - Existing reports include test runs with mean Dice around 0.62, depending on configuration.
 
+
 ---
 
-## 4. Additional documents
+## 5. Additional documents
 
 - Minimum recipe (Japanese source)
   - `./docs/isles2022_unet_minimum_recipe_ja.md`
