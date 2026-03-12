@@ -35,13 +35,19 @@ Use this page as a fast external-review checklist for the public ISLES 2022 3D r
 - Confirm size-aware or lesion-aware metrics are surfaced, not only Dice.
 - Confirm the repository states what is included and excluded from the public bundle.
 
-## 6. Reviewer pass criteria
+## 6. Registration verification
+
+- Run `python core/pipeline/tools/verify_registration.py --run-dir <REPRESENTATIVE_RUN_DIR> --model-name isles-3d-unet --checkpoint best.pt --promotion-rule "val_dice>=0.75" --registered-model-name isles-3d-unet-verify` from the repository root or `python tools/verify_registration.py ...` from `core/pipeline`.
+- Confirm the command creates `artifacts/verification/registered_models/.../registration.json`.
+- Confirm the printed JSON summary reports the expected `promotion_status` and alias outcome.
+
+## 7. Reviewer pass criteria
 
 - A reviewer can identify the main task, the key metrics, and the first commands to run in under 3 minutes.
 - A reviewer can trace preprocess -> train -> evaluate without needing hidden scripts.
 - A reviewer can validate repository wiring without access to protected data.
 
-## 7. Known limits
+## 8. Known limits
 
 - This checklist validates public reproducibility scaffolding, not full medical-model reproduction.
 - Full metric reproduction still requires separately prepared ISLES 2022 data.

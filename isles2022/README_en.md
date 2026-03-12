@@ -177,6 +177,20 @@ python tools/register_model.py \
 
 Promotion rules are evaluated against the latest metrics in `log.jsonl`. If the rule passes, the configured promotion alias is updated on the created MLflow model version.
 
+If you want the verification flow in a single command, use `verify_registration.py`.
+
+```bash
+python tools/verify_registration.py \
+  --run-dir runs/3d_unet/<YOUR_RUN> \
+  --model-name isles-3d-unet \
+  --version-label verify-fold0-best \
+  --checkpoint best.pt \
+  --promotion-rule "val_dice>=0.75" \
+  --registered-model-name isles-3d-unet-verify
+```
+
+This wrapper creates a local SQLite-backed MLflow Registry under `artifacts/verification/`, runs `register_model.py`, and prints a compact JSON summary that confirms both `registration.json` and the expected alias.
+
 ---
 
 ## 5. Current highlights (portfolio notes)
