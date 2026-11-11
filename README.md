@@ -14,7 +14,6 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 - Suggested review order: [EN snapshot guide](docs/releases/v0.4.0-isles.md) | [JA snapshot guide](docs/releases/v0.4.0-isles_ja.md)
 - GitHub About settings: [EN](docs/github_about.md) | [JA](docs/github_about_ja.md)
 - Citation: [CITATION.cff](CITATION.cff)
-- Public polish checklist: [docs/audit/polish-isles2022-3d.md](docs/audit/polish-isles2022-3d.md)
 - Release note source: [EN](docs/releases/v0.4.0-isles.md) | [JA](docs/releases/v0.4.0-isles_ja.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
 

@@ -15,7 +15,6 @@
 - GitHub About: [docs/github_about_ja.md](docs/github_about_ja.md)
 - 引用: [CITATION.cff](CITATION.cff)
 - ロードマップ: [ROADMAP.md](ROADMAP.md)
-- 公開整備チェック表: [docs/audit/polish-isles2022-3d.md](docs/audit/polish-isles2022-3d.md)
 
 ## 本リポジトリで確認できること
 
