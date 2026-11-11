@@ -2,7 +2,7 @@
 
 テンプレ由来: RSNA `docs/audit/PUBLIC_REPO_POLISH_CHECKLIST.md`  
 監査日: 2026-11-11  
-対象コミット: （push 後に記入）
+対象コミット: eb87609
 
 ## 1. 証拠と主張
 
@@ -27,7 +27,7 @@
 | PNG + `width="100%"` | 完了 | architecture / repo_map / results_snapshot |
 | 日本語 `*_ja.png` | 完了 | README_ja から参照 |
 | Mermaid 非依存 | 完了 | 静的 SVG→PNG |
-| raw ハッシュ照合 | 完了予定 | push 後に記録 |
+| raw ハッシュ照合 | 完了 | 下記参照 |
 
 ## 4. 日本語
 
@@ -42,7 +42,7 @@
 | 項目 | 状態 | メモ |
 |---|---|---|
 | ローカル図再生成 | 完了 | docs/assets/*.png |
-| raw 照合 | 未 | push 後 |
+| raw 照合 | 完了 | 下記参照 |
 | ブラウザ確認 | 未 | ハードリロード後 |
 
 ## 監査時ギャップ（整備前）
@@ -55,4 +55,4 @@
 
 ## 適用コミット
 
-（push 後追記）
+`eb87609` — PNG/JA/caveat/checklist
