@@ -4,6 +4,8 @@
 
 Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, with audit-ready documentation, threshold / postprocess sweeps, and size-stratified evaluation.
 
+> Research / portfolio only. **Not a medical device.** Medical data are not bundled.
+
 **Quick links**
 - English entry: [isles2022/README_en.md](isles2022/README_en.md)
 - Japanese entry: [isles2022/README.md](isles2022/README.md)
@@ -12,6 +14,7 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 - Suggested review order: [EN snapshot guide](docs/releases/v0.4.0-isles.md) | [JA snapshot guide](docs/releases/v0.4.0-isles_ja.md)
 - GitHub About settings: [EN](docs/github_about.md) | [JA](docs/github_about_ja.md)
 - Citation: [CITATION.cff](CITATION.cff)
+- Public polish checklist: [docs/audit/polish-isles2022-3d.md](docs/audit/polish-isles2022-3d.md)
 - Release note source: [EN](docs/releases/v0.4.0-isles.md) | [JA](docs/releases/v0.4.0-isles_ja.md)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
 
@@ -21,7 +24,7 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 - A 3D U-Net baseline with explicit threshold and connected-component sweeps
 - Size-aware reporting for small-lesion performance
 - Portfolio-ready documentation for external review
-- A no-data smoke test that checks the public bundle in under a minute
+- A no-data smoke test that checks the public bundle without medical data
 
 ## Who this is for
 
@@ -29,13 +32,13 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 - ML engineers looking for an auditable MRI segmentation baseline
 - Researchers looking for a reproducible ISLES-style project structure
 
-## 3-minute overview
+## Visual overview
 
-![ISLES architecture](docs/assets/architecture.svg)
+<p align="center"><img src="docs/assets/architecture.png" alt="ISLES architecture" width="100%" /></p>
 
-![ISLES repository map](docs/assets/repo_map.svg)
+<p align="center"><img src="docs/assets/repo_map.png" alt="ISLES repository map" width="100%" /></p>
 
-![ISLES metrics snapshot](docs/assets/results_snapshot.svg)
+<p align="center"><img src="docs/assets/results_snapshot.png" alt="ISLES metrics snapshot" width="100%" /></p>
 
 ### Representative results
 
@@ -46,7 +49,7 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 | Lesion-wise precision | 0.516 | Shows the FP-control tradeoff |
 | HD95 | 12.38 mm | Boundary quality indicator |
 
-> Notes: values are configuration-dependent and come from the bundled recipe / evaluation notes. Protected medical data is intentionally not included.
+> Notes: values are configuration-dependent and come from the bundled recipe / evaluation notes. Protected medical data is intentionally not included. Research implementation only; **not a medical device**.
 
 ## Quickstart
 

@@ -1,0 +1,30 @@
+<svg width="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">ISLESリポジトリの案内</title>
+  <desc id="desc">公開ISLESリポジトリの主要ディレクトリ。</desc>
+  <rect width="1200" height="360" fill="#111827"/>
+  <text x="60" y="54" fill="#f9fafb" font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="30" font-weight="700">リポジトリの案内</text>
+  <text x="60" y="88" fill="#d1d5db" font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="18">手元データなしでも、文書・コード・評価成果を辿れるよう整理する。</text>
+  <g font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif">
+    <rect x="60" y="128" rx="16" ry="16" width="260" height="170" fill="#1f2937" stroke="#60a5fa" stroke-width="3"/>
+    <text x="86" y="168" fill="#eff6ff" font-size="24" font-weight="700">README.md</text>
+    <text x="86" y="204" fill="#bfdbfe" font-size="18">入口</text>
+    <text x="86" y="232" fill="#bfdbfe" font-size="18">動作確認</text>
+    <text x="86" y="260" fill="#bfdbfe" font-size="18">指標の要約</text>
+
+    <rect x="360" y="128" rx="16" ry="16" width="240" height="170" fill="#1e3a8a"/>
+    <text x="388" y="168" fill="#ffffff" font-size="24" font-weight="700">isles2022/</text>
+    <text x="388" y="204" fill="#dbeafe" font-size="18">日英の入口文書</text>
+    <text x="388" y="232" fill="#dbeafe" font-size="18">最小手順</text>
+
+    <rect x="640" y="128" rx="16" ry="16" width="260" height="170" fill="#065f46"/>
+    <text x="668" y="168" fill="#ffffff" font-size="24" font-weight="700">core/pipeline/</text>
+    <text x="668" y="204" fill="#d1fae5" font-size="18">前処理・学習・評価</text>
+    <text x="668" y="232" fill="#d1fae5" font-size="18">報告と設定</text>
+
+    <rect x="940" y="128" rx="16" ry="16" width="200" height="170" fill="#7c2d12"/>
+    <text x="968" y="168" fill="#ffffff" font-size="24" font-weight="700">docs/</text>
+    <text x="968" y="204" fill="#fed7aa" font-size="18">図</text>
+    <text x="968" y="232" fill="#fed7aa" font-size="18">リリースノート</text>
+    <text x="968" y="260" fill="#fed7aa" font-size="18">引用</text>
+  </g>
+</svg>

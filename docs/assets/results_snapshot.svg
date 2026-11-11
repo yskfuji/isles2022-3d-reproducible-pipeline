@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<svg width="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">ISLES metrics snapshot</title>
   <desc id="desc">Static chart summarizing local test Dice, fold0 validation Dice, lesion precision, and HD95.</desc>
   <rect width="1200" height="420" fill="#020617"/>
-  <text x="60" y="54" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">3-minute metrics snapshot</text>
-  <text x="60" y="88" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="18">Values are taken from the bundled recipe and evaluation notes.</text>
-  <g font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#e2e8f0">
+  <text x="60" y="54" fill="#f8fafc" font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="30" font-weight="700">3-minute metrics snapshot</text>
+  <text x="60" y="88" fill="#cbd5e1" font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="18">Values are taken from the bundled recipe and evaluation notes.</text>
+  <g font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="20" fill="#e2e8f0">
     <text x="60" y="156">Local test mean Dice ↑</text>
     <rect x="320" y="132" width="820" height="34" rx="10" fill="#1e293b"/>
     <rect x="320" y="132" width="510" height="34" rx="10" fill="#38bdf8"/>

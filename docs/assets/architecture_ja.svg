@@ -1,0 +1,33 @@
+<svg width="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">ISLESパイプラインの構成</title>
+  <desc id="desc">ISLES MRIから前処理、3D U-Net学習、評価スイープまでの流れ。</desc>
+  <rect width="1200" height="360" fill="#0f172a"/>
+  <text x="60" y="52" fill="#f8fafc" font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="30" font-weight="700">ISLES 2022 処理の流れ</text>
+  <text x="60" y="86" fill="#cbd5e1" font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif" font-size="18">DWI / ADC MRI → 前処理 → 3D U-Net → しきい値・後処理スイープ → セグメンテーション指標</text>
+  <g font-family="'Hiragino Sans', 'Noto Sans CJK JP', Arial, Helvetica, sans-serif">
+    <rect x="60" y="130" rx="18" ry="18" width="220" height="140" fill="#1d4ed8"/>
+    <text x="92" y="178" fill="#ffffff" font-size="24" font-weight="700">ISLES MRI</text>
+    <text x="92" y="212" fill="#dbeafe" font-size="18">DWIとADCの体積</text>
+    <text x="92" y="238" fill="#dbeafe" font-size="18">導出マスク</text>
+
+    <rect x="330" y="130" rx="18" ry="18" width="220" height="140" fill="#0f766e"/>
+    <text x="360" y="178" fill="#ffffff" font-size="24" font-weight="700">前処理</text>
+    <text x="360" y="212" fill="#ccfbf1" font-size="18">再標本化・正規化</text>
+    <text x="360" y="238" fill="#ccfbf1" font-size="18">処理済みテンソル</text>
+
+    <rect x="600" y="130" rx="18" ry="18" width="220" height="140" fill="#7c3aed"/>
+    <text x="650" y="178" fill="#ffffff" font-size="24" font-weight="700">3D U-Net</text>
+    <text x="650" y="212" fill="#ede9fe" font-size="18">学習・推論</text>
+    <text x="650" y="238" fill="#ede9fe" font-size="18">DWIとADCを入力</text>
+
+    <rect x="870" y="130" rx="18" ry="18" width="270" height="140" fill="#be123c"/>
+    <text x="900" y="178" fill="#ffffff" font-size="24" font-weight="700">評価スイープ</text>
+    <text x="900" y="212" fill="#ffe4e6" font-size="18">Dice / HD95 / しきい値</text>
+    <text x="900" y="238" fill="#ffe4e6" font-size="18">小病変の追跡</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M280 200 H320"/>
+    <path d="M550 200 H590"/>
+    <path d="M820 200 H860"/>
+  </g>
+</svg>
