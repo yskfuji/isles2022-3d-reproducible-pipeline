@@ -5,6 +5,9 @@ __pycache__/
 .ruff_cache/
 .venv/
 Datasets/
+datasets/
+# core.ignorecase=true makes Datasets/ match this source package.
+!src/datasets/
 data/
 logs/
 results/

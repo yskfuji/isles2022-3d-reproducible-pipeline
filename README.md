@@ -45,7 +45,7 @@ Reproducible 3D ischemic stroke lesion segmentation pipeline for ISLES 2022, wit
 | Lesion-wise precision | 0.516 | Shows the FP-control tradeoff |
 | HD95 | 12.38 mm | Boundary quality indicator |
 
-> Notes: values are configuration-dependent and come from the bundled recipe / evaluation notes. Protected medical data is intentionally not included. Research implementation only; **not a medical device**.
+> Notes: values are configuration-dependent and come from the bundled recipe / evaluation notes. The 0.622 figure is the 5-fold mean-prob ensemble at threshold 0.20 on 25 local test cases, recorded in [isles2022/docs/isles2022_unet_minimum_recipe_ja.md](isles2022/docs/isles2022_unet_minimum_recipe_ja.md) and [docs/metrics/local_test_dice_0_622.json](docs/metrics/local_test_dice_0_622.json). [core/pipeline/reports/latest_eval_report.md](core/pipeline/reports/latest_eval_report.md) has 83 test-split rows and no validation-split rows, and it does not contain 0.622. Thresholds in that report were revisited on the test split, so those rows can be optimistic. Protected medical data is intentionally not included. Research implementation only; **not a medical device**.
 
 ## Quickstart
 

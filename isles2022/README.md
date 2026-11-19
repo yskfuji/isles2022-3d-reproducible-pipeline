@@ -54,6 +54,8 @@
 | fold0 検証 | TTA=flip, threshold 0.14 | 0.7539 | 0.7522 | n/a | n/a |
 | ローカルテスト | 5-fold mean-prob ensemble, threshold 0.20 | 0.622 | 0.5161 | 0.5927 | 12.38 mm |
 
+0.622 は同梱レシピ `docs/isles2022_unet_minimum_recipe_ja.md` の値です（`../docs/metrics/local_test_dice_0_622.json` にも同じ出典を書いています）。`../core/pipeline/reports/latest_eval_report.md` はテスト分割の評価が 83 件、検証分割の評価が 0 件で、この 0.622 の行はありません。テスト分割でしきい値を繰り返して見ているため、あのレポートは楽観的になりえます。
+
 ### 公開テストレシピのサイズ別 Dice
 
 サイズ区分は evaluator の既定値に合わせています: small `<250` vox、medium `250-999` vox、large `>=1000` vox。
