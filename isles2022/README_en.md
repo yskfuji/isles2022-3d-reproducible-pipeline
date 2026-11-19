@@ -52,6 +52,8 @@ organized so a third party can understand and rerun the pipeline with their own 
 | Fold0 validation | TTA=flip, threshold 0.14 | 0.7539 | 0.7522 | n/a | n/a |
 | Local test | 5-fold mean-prob ensemble, threshold 0.20 | 0.622 | 0.5161 | 0.5927 | 12.38 mm |
 
+The 0.622 row is the bundled recipe in `docs/isles2022_unet_minimum_recipe_ja.md` (also `../docs/metrics/local_test_dice_0_622.json`). `../core/pipeline/reports/latest_eval_report.md` lists 83 test-split evaluations and no validation-split evaluations, and it does not contain this row. Those test-split thresholds were revisited on the test cases, so that report can be optimistic.
+
 ### Size-stratified Dice on the published local-test recipe
 
 Buckets follow the evaluator default: small `<250` vox, medium `250-999` vox, large `>=1000` vox.

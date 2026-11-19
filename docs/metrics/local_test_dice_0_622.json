@@ -1,0 +1,16 @@
+{
+  "metric": "mean_dice",
+  "split": "local_test",
+  "n_cases": 25,
+  "value": 0.622,
+  "threshold": 0.2,
+  "protocol": "5-fold mean-prob ensemble",
+  "source": "isles2022/docs/isles2022_unet_minimum_recipe_ja.md",
+  "latest_eval_report": {
+    "path": "core/pipeline/reports/latest_eval_report.md",
+    "test_rows": 83,
+    "validation_rows": 0,
+    "contains_this_value": false,
+    "note": "That report records repeated evaluations on the local test split and does not include this 0.622 row. Thresholds there were revisited on the test split, so those rows can be optimistic."
+  }
+}

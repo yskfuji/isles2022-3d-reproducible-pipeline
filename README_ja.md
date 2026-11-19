@@ -39,7 +39,7 @@
 | 病変単位の適合率 | 0.516 | 偽陽性制御とのトレードオフ |
 | HD95 | 12.38 mm | 境界品質の指標 |
 
-> 数値は同梱レシピと評価メモに基づく。医療データ本体は公開物に含めない。研究実装であり、**医療機器ではありません**。
+> 数値は同梱レシピと評価メモに基づく。0.622 は、25 例のローカルテストでしきい値 0.20 の 5-fold 平均確率アンサンブルの値で、出典は [isles2022/docs/isles2022_unet_minimum_recipe_ja.md](isles2022/docs/isles2022_unet_minimum_recipe_ja.md) と [docs/metrics/local_test_dice_0_622.json](docs/metrics/local_test_dice_0_622.json) です。[core/pipeline/reports/latest_eval_report.md](core/pipeline/reports/latest_eval_report.md) はテスト分割の評価が 83 件、検証分割の評価が 0 件で、0.622 の行はありません。あのレポートはテスト分割でしきい値を繰り返して見ているため、楽観的になりえます。医療データ本体は公開物に含めない。研究実装であり、**医療機器ではありません**。
 
 ## 医療データを用いず動作を確認する手順
 

@@ -21,6 +21,7 @@ REQUIRED_PATHS = [
     "core/pipeline/src/preprocess/prepare_isles2022.py",
     "core/pipeline/src/training/train_3d_unet.py",
     "core/pipeline/src/evaluation/evaluate_isles.py",
+    "core/pipeline/src/datasets/isles_dataset.py",
 ]
 ENTRYPOINTS = [
     "python -m src.preprocess.prepare_isles2022",
@@ -71,6 +72,11 @@ def main() -> int:
     if missing:
         print("Missing required files:", *missing, sep="\n- ")
         return 1
+
+    imports = subprocess.run([sys.executable, str(root / "scripts/check_imports.py")], cwd=root)
+    if imports.returncode != 0:
+        print("Relative import check failed")
+        return imports.returncode
 
     out_dir = root / "artifacts" / "smoke_dummy"
     out_dir.mkdir(parents=True, exist_ok=True)
